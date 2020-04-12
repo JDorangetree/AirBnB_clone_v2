@@ -13,12 +13,12 @@ def do_pack():
         output = "versions/web_static_{}.tgz".format(now_format)
         print("Packing web_static to {}".format(output))
 
-        with hide('running'):
+        with hide('running', 'stdout', 'stderr'):
             local("mkdir -p versions")
 
         local("tar -cvzf {} web_static".format(output))
 
-        with hide('running'):
+        with hide('running', 'stdout', 'stderr'):
             size = local('stat -c %s {}'.format(output), capture=True)
 
         print("web_static packed: {} -> {}Bytes".format(output, size))
