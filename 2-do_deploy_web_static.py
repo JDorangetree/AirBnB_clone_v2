@@ -10,6 +10,8 @@ def do_deploy(archive_path):
     """
     Distributes an directory to a web server
     """
+    if not path.exists(archive_path):
+        return False
     zipped_file = archive_path.split("/", 1)[1]
     unzipped_file = zipped_file.split(".", 1)[0]
     try:
@@ -19,8 +21,9 @@ def do_deploy(archive_path):
             format(zipped_file, unzipped_file))
         run("sudo rm /tmp/{}".format(zipped_file))
         run("sudo rm -r /data/web_static/current")
-        run("sudo ln -sf /data/web_static/releases/{}/ \
+        run("sudo ln -sf /data/web_static/releases/{}/web_static \
             /data/web_static/current".format(unzipped_file))
+        print("New version deployed!")
         return True
     except:
         return False
