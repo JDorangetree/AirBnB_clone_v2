@@ -2,7 +2,7 @@
 """Compress before sending"""
 
 from datetime import datetime
-from fabric.api import *
+from fabric.api import local hide
 
 
 def do_pack():
