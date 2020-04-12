@@ -19,8 +19,8 @@ def do_deploy(archive_path):
             format(zipped_file, unzipped_file))
         run("sudo rm /tmp/{}".format(zipped_file))
         run("sudo rm -r /data/web_static/current")
-        run("sudo ln -sf /data/web_static/releases/{}/"
-            "/data/web_static/current".format(unzipped_file))
+        run("sudo ln -sf /data/web_static/releases/{}/ \
+            /data/web_static/current".format(unzipped_file))
         return True
     except:
         return False
