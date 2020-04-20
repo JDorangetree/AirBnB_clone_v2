@@ -28,4 +28,9 @@ def hello_world4(text=None):
     text = text.replace("_", " ")
     return ("Python {}".format(text))
 
+
+@app.route('/number/<int:n>', strict_slashes=False)
+def hello_world5(n):
+    return ("{} is a number".format(n))
+
 app.run(host='0.0.0.0', port=5000)
