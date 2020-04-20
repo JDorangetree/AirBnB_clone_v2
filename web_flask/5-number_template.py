@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Starts a Flash Web Application """
 from flask import Flask
+from flask import render_template
 app = Flask(__name__)
 
 
@@ -32,5 +33,10 @@ def hello_world4(text=None):
 @app.route('/number/<int:n>', strict_slashes=False)
 def hello_world5(n):
     return ("{} is a number".format(n))
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def hello_world6(n):
+    return render_template('5-number.html', n=n)
 
 app.run(host='0.0.0.0', port=5000)
