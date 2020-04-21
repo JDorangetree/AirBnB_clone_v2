@@ -33,4 +33,6 @@ def hello_world4(text=None):
 def hello_world5(n):
     return ("{} is a number".format(n))
 
-app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    """main"""
+    app.run(host='0.0.0.0', port=5000)
