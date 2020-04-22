@@ -79,3 +79,6 @@ class DBStorage:
         """delete obj from __objects if it’s inside"""
         if obj is not None:
             self.__session.delete(obj)
+
+    def close(self):
+        self.__session.close()
