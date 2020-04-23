@@ -9,40 +9,32 @@ app = Flask(__name__)
 
 
 @app.route('/states', strict_slashes=False)
-def get_states():
-    """"""
-    states_dict = {}
-    dict_values = storage.all(State).values()
-    for item in dict_values:
-        ids = item.id
-        state = item.name
-        states_dict[ids] = state
-    sorted_tuple = sorted(states_dict.items(), key=lambda x: x[1])
-    list_cities = []
-    state_city = []
-
-    return render_template('9-states.html',
-                           sorted_dict=sorted_tuple,
-                           list_cities=list_cities)
-
-
 @app.route('/states/<id>', strict_slashes=False)
 def get_state_by_id(id=None):
     """"""
-    states_dict = {}
+
     dict_values = storage.all(State).values()
     dict_values = sorted(dict_values, key=lambda x: x.name)
-    for state in dict_values:
-        if state.id == id:
-            list_cities = state.cities
-            list_cities = tuple(sorted(list_cities, key=lambda x: x.name))
-            state_city = state
-            break
-        else:
-            list_cities = []
-            state_city = []
+    flag = 1
+    if (id is None):
+        flag = 0
+    if (flag == 1):
+        for state in dict_values:
+            if state.id == id:
+                list_cities = state.cities
+                list_cities = tuple(sorted(list_cities, key=lambda x: x.name))
+                state_city = state
+                break
+            else:
+                list_cities = []
+                state_city = []
+                dict_values = []
+    else:
+        list_cities = []
+        state_city = []
     return render_template('9-states.html',
                            list_cities=list_cities,
+                           dict_values=dict_values,
                            state=state_city, h1="Not found!")
 
 
