@@ -12,11 +12,11 @@
             <li>{{ tuple.id }}: <B>{{ tuple.name }}</B></li>
         {% endfor %}
         </ul>
-        {% elif sorted_dict %}
+        {% elif dict_values %}
         <h1>States</h1>
         <ul>
-        {% for tuple in sorted_dict %}
-            <li>{{ tuple[0] }}: <B>{{ tuple[1] }}</B></li>
+        {% for tuple in dict_values %}
+            <li>{{ tuple.id }}: <B>{{ tuple.name }}</B></li>
         {% endfor %}
         </ul>
         {% else %}
