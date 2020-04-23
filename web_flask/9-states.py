@@ -27,7 +27,7 @@ def get_states():
 
 
 @app.route('/states/<id>', strict_slashes=False)
-def get_state_by_id(id):
+def get_state_by_id(id=None):
     """"""
     states_dict = {}
     dict_values = storage.all(State).values()
