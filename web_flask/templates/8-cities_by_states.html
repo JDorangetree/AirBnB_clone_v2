@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HBNB</title>
+    </head>
+    <body>
+        <h1>States</h1>
+        <ul>
+        {% for tuple in state %}
+            <li>{{ tuple[0].id }}: <B>{{ tuple[0].name }}</B>
+                <ul>
+                {% for city in tuple[1] %}
+                    <li>{{ city.id }}: <B>{{ city.name }}</B></li>
+                {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>
