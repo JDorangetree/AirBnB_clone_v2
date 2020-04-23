@@ -18,7 +18,12 @@ def get_states():
         state = item.name
         states_dict[ids] = state
     sorted_tuple = sorted(states_dict.items(), key=lambda x: x[1])
-    return render_template('7-states_list.html', sorted_dict=sorted_tuple)
+    list_cities = []
+    state_city = []
+
+    return render_template('9-states.html',
+                           sorted_dict=sorted_tuple,
+                           list_cities=list_cities)
 
 
 @app.route('/states/<id>', strict_slashes=False)
