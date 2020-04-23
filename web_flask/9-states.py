@@ -35,7 +35,7 @@ def get_state_by_id(id=None):
     return render_template('9-states.html',
                            list_cities=list_cities,
                            dict_values=dict_values,
-                           state=state_city, h1="Not found!")
+                           state=state_city, error="Not found!")
 
 
 @app.teardown_appcontext
