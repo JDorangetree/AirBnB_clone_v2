@@ -25,6 +25,13 @@ def get_state_by_id(id=None):
                 list_cities = tuple(sorted(list_cities, key=lambda x: x.name))
                 state_city = state
                 break
+            else:
+                list_cities = []
+                state_city = []
+                dict_values = []
+    elif (flag == 0 and len(dict_values) > 0):
+        list_cities = []
+        state_city = []
     else:
         list_cities = []
         state_city = []
