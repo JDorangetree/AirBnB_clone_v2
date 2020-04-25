@@ -30,6 +30,7 @@ def get_state_by_id(id=None):
                 list_cities = []
                 state_city = []
                 dict_values = []
+                error = "sin city"
     elif (flag == 0 and len(dict_values) > 0):
         list_cities = []
         state_city = []

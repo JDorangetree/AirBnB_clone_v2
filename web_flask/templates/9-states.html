@@ -21,6 +21,8 @@
         </UL>
         {% elif error == "" %}
         <H1>States:</H1>
+        {% elif error == "sin city" %}
+        <H1>State: {{state.name}}</H1>
         {% else %}
         <H1>{{error}}</H1>
         {% endif %}
