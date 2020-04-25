@@ -19,6 +19,9 @@
             <LI>{{ tuple.id }}: <B>{{ tuple.name }}</B></LI>
             {% endfor %}
         </UL>
+        {% elif error == "" %}
+        <H1>State:</H1>
+        <H3>Cities:</H3>
         {% else %}
         <H1>{{error}}</H1>
         {% endif %}

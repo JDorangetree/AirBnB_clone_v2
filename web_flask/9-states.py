@@ -15,6 +15,7 @@ def get_state_by_id(id=None):
 
     dict_values = storage.all(State).values()
     dict_values = sorted(dict_values, key=lambda x: x.name)
+    error = "Not found!"
     flag = 1
     if (id is None):
         flag = 0
@@ -32,6 +33,11 @@ def get_state_by_id(id=None):
     elif (flag == 0 and len(dict_values) > 0):
         list_cities = []
         state_city = []
+    elif (flag == 0 and len(dict_values) == 0):
+        error = ""
+        list_cities = []
+        state_city = []
+        dict_values = []
     else:
         list_cities = []
         state_city = []
@@ -39,7 +45,7 @@ def get_state_by_id(id=None):
     return render_template('9-states.html',
                            list_cities=list_cities,
                            dict_values=dict_values,
-                           state=state_city, error="Not found!")
+                           state=state_city, error=error)
 
 
 @app.teardown_appcontext
