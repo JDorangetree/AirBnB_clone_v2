@@ -24,13 +24,14 @@ def get_state_by_id(id=None):
             if state.id == id:
                 list_cities = state.cities
                 list_cities = tuple(sorted(list_cities, key=lambda x: x.name))
+                if (len(list_cities) == 0):
+                    error = "sin city"
                 state_city = state
                 break
             else:
                 list_cities = []
                 state_city = []
                 dict_values = []
-                error = "sin city"
     elif (flag == 0 and len(dict_values) > 0):
         list_cities = []
         state_city = []
