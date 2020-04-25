@@ -18,7 +18,7 @@ def get_state_by_id(id=None):
     flag = 1
     if (id is None):
         flag = 0
-    if (flag == 1):
+    if (flag == 1 and dict_values):
         for state in dict_values:
             if state.id == id:
                 list_cities = state.cities
