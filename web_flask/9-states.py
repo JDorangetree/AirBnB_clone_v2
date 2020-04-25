@@ -25,13 +25,10 @@ def get_state_by_id(id=None):
                 list_cities = tuple(sorted(list_cities, key=lambda x: x.name))
                 state_city = state
                 break
-            else:
-                list_cities = []
-                state_city = []
-                dict_values = []
     else:
         list_cities = []
         state_city = []
+        dict_values = []
     return render_template('9-states.html',
                            list_cities=list_cities,
                            dict_values=dict_values,
